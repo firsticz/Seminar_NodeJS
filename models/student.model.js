@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 var studentSchema = new mongoose.Schema({
     historyid: {
-        type: String
+        type: String,
+        required: 'this field is required.'
     },
     term: {
         type: String
