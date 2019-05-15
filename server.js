@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const bodyparser = require('body-parser');
-
+const Handlebars = require('handlebars')
 const studentController = require('./controllers/studentController');
 
 var app = express();
@@ -16,7 +16,9 @@ app.use(bodyparser.json());
 app.set('views', path.join(__dirname,'/views/'));
 app.engine('hbs', exphbs({extname: 'hbs', defaultLayout: 'mainLayout', layoutsDir: __dirname + '/views/layouts/'}));
 app.set('view engine', 'hbs');
-
+Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+  });
 app.listen(3000, ()=>{
     console.log('Express server start at port: 3000');
 });

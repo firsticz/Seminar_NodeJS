@@ -1,24 +1,21 @@
 const mongoose = require('mongoose');
 
 var studentSchema = new mongoose.Schema({
-    historyid: {
-        type: String,
-        required: 'this field is required.'
-    },
     term: {
-        type: String
+        type: String,
+        required: 'กรุณากรอกข้อมูล'
     },
     year: {
-        type: String
+        type: String,
+        required: 'กรุณากรอกข้อมูล'
     },
     grade:{
-        type: String
-    },
-    studentid: {
-        type: String
+        type: String,
+        required: 'กรุณากรอกข้อมูล'
     },
     courseid: {
-        type: String
+        type: String,
+        required: 'กรุณากรอกข้อมูล'
     }
 });
 

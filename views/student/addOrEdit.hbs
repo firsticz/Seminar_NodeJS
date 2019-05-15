@@ -3,32 +3,61 @@
 <form action="/student" method="post" autocomplete="off">
     <input type="hidden" name="_id" value="{{student._id}}">
     <div class="form-group">
-        <label>historyid</label>
-        <input type="text" class="form-control" name="historyid" value="{{student.historyid}}">
-        <div class="text-danger">{{student.historyidError}}</div>
+        <label for="exampleFormControlSelect1">ภาคการศึกษา</label>
+        <select class="form-control"  name="term">
+            <option {{#ifEquals student.term "1"}} selected {{/ifEquals}}>1</option>
+            <option {{#ifEquals student.term "2"}} selected {{/ifEquals}}>2</option>
+            <option {{#ifEquals student.term "3"}} selected {{/ifEquals}}>3</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>ปัการศึกษา</label>
+        {{!-- <input type="text" class="form-control" id="datepicker" name="year" value="{{student.year}}"> --}}
+        <select class="form-control"  name="year">
+            <option {{#ifEquals student.year "2561"}} selected {{/ifEquals}}>2561</option>
+            <option {{#ifEquals student.year "2560"}} selected {{/ifEquals}}>2560</option>
+            <option {{#ifEquals student.year "2559"}} selected {{/ifEquals}}>2559</option>
+            <option {{#ifEquals student.year "2558"}} selected {{/ifEquals}}>2558</option>
+            <option {{#ifEquals student.year "2557"}} selected {{/ifEquals}}>2557</option>
+            <option {{#ifEquals student.year "2556"}} selected {{/ifEquals}}>2556</option>
+            <option {{#ifEquals student.year "2555"}} selected {{/ifEquals}}>2555</option>
+            <option {{#ifEquals student.year "2554"}} selected {{/ifEquals}}>2554</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>เกรด</label>
+        
+        <select class="form-control"  name="grade">
+            <option {{#ifEquals student.grade "F"}} selected {{/ifEquals}}>F</option>
+            <option {{#ifEquals student.grade "W"}} selected {{/ifEquals}}>W</option>
+        </select>
+    </div>
+ 
+    <div class="form-group">
+        <label>รหัสวิชา</label>
+
+        {{!-- <input type="text" class="form-control" name="courseid" value="{{student.courseid}}"> --}}
+       
+        <select class="form-control"  name="courseid">
+            {{#each list}}
+                <option>{{this.courseid}}</option>
+
+            {{/each}}
+        </select>
+       
     </div>
     <div class="form-group">
-        <label>term</label>
-        <input type="text" class="form-control" name="term" value="{{student.term}}">
-    </div>
-    <div class="form-group">
-        <label>year</label>
-        <input type="text" class="form-control" name="year" value="{{student.year}}">
-    </div>
-    <div class="form-group">
-        <label>grade</label>
-        <input type="text" class="form-control" name="grade" value="{{student.grade}}">
-    </div>
-    <div class="form-group">
-        <label>studentid</label>
-        <input type="text" class="form-control" name="studentid" value="{{student.studentid}}">
-    </div>
-    <div class="form-group">
-        <label>courseid</label>
-        <input type="text" class="form-control" name="courseid" value="{{student.courseid}}">
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Submit</button>
-        <a class="btn btn-secondary" href="{{next}}"><i class="fa fa-list-alt"></i> View All</a>
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> ตกลง</button>
+        <a class="btn btn-secondary" href="{{next}}"><i class="fa fa-list-alt"></i> ดูข้อมูลทั้งหมด</a>
     </div>
 </form>
+<script>
+    $("#datepicker").datepicker({
+    format: "yyyy",
+    viewMode: "years", 
+    minViewMode: "years",
+    minDate : new Date()
+});
+</script>

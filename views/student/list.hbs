@@ -1,13 +1,11 @@
-<h3><a class="btn btn-secondary" href="/student"><i class="fa fa-plus"> Create New</i></a> Student List</h3>
+<h3><a class="btn btn-secondary" href="/student"><i class="fa fa-plus"> เพิ่มรายวิชา</i></a> รายวิชาที่ตกค้าง</h3>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>historyid</th>
-            <th>term</th>
-            <th>year</th>
-            <th>grade</th>
-            <th>studentid</th>
-            <th>courseid</th>
+            <th>ภาคการศึกษา</th>
+            <th>ปีการศึกษา</th>
+            <th>เกรด</th>
+            <th>รหัสวิชา</th>
             <th></th>
         </tr>
     </thead>
@@ -15,11 +13,9 @@
 
         {{#each list}}
         <tr>
-            <td>{{this.historyid}}</td>
             <td>{{this.term}}</td>
             <td>{{this.year}}</td>
             <td>{{this.grade}}</td>
-            <td>{{this.studentid}}</td>
             <td>{{this.courseid}}</td>
             <td>
                 <a href="/student/{{this._id}}"><i class="fa fa-edit fa-lg" aria-hidden="true"></i></a>

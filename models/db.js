@@ -6,3 +6,4 @@ mongoose.connect('mongodb://localhost:27017/Student',{useNewUrlParser: true}, (e
 });
 
 require('./student.model');
+require('./course.model');
